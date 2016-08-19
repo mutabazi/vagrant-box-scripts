@@ -50,7 +50,7 @@ apt-get install -y build-essential linux-headers-generic linux-headers-`uname -r
 
 # install/build vbox guest additions
 cd /tmp
-VBOX_VERSION=5.0.14
+VBOX_VERSION=$(curl -s http://download.virtualbox.org/virtualbox/LATEST.TXT | cut -f 1)
 wget http://download.virtualbox.org/virtualbox/$VBOX_VERSION/VBoxGuestAdditions_$VBOX_VERSION.iso
 mount -o loop,ro VBoxGuestAdditions_$VBOX_VERSION.iso /mnt
 /mnt/VBoxLinuxAdditions.run --nox11
